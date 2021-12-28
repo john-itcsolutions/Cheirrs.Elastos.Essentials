@@ -24,15 +24,15 @@ jobs:
           java-version: 1.8
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
-      - name: Install build-tools
-        run: (echo y; echo y; echo y;) | sdkmanager "build-tools;28.0.3"
+      # - name: Install build-tools
+      #   run: (echo y; echo y; echo y;) | sdkmanager "build-tools;28.0.3"
       - name: Show package
         run: |
-          sdkmanager --list
           sdkmanager --uninstall "build-tools;32.0.0"
+          sdkmanager --uninstall "build-tools;31.0.0"
           sdkmanager --list
 
-      # - name: Build
-      #   run: |
-      #     ./ToolChains/bin/build all -pf android --build
-      #     ls -l App/platforms/android/app/build/outputs/apk/debug
+      - name: Build
+        run: |
+          ./ToolChains/bin/build all -pf android --build
+          ls -l App/platforms/android/app/build/outputs/apk/debug
