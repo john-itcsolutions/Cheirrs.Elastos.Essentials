@@ -24,6 +24,7 @@ jobs:
           java-version: 1.8
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
+      - name: Install build-tools
         run: (echo y; echo y; echo y;) | sdkmanager "build-tools;28.0.3"
 
       - name: Build
